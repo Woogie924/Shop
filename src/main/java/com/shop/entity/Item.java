@@ -22,7 +22,7 @@ public class Item {
 
     @Column(nullable = false,
             length = 50)
-    private String itemNm;  // 상품명
+    private String itemName;  // 상품명
     
     @Column(name="price",
             nullable = false)
