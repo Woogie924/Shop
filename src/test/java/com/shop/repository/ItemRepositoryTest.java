@@ -38,7 +38,44 @@ class ItemRepositoryTest {
         System.out.println(savedItem.toString());
     }
 
-    public void createItemList() {
+
+    @Test
+    @DisplayName("상품명 조회 테스트")
+    public void findByItemName() {
+        int expectedResult = 1;
+        this.createItemList();
+        List<Item> itemList = itemRepository.findByItemName("1번 테스트 상품");
+
+        for(Item item : itemList) {
+            System.out.println(item);
+        }
+
+        assertThat(itemList.size()).isEqualTo(expectedResult);
+    }
+
+    @Test
+    @DisplayName("상품명, 상품 상세설명 or 테스트")
+    void findByItemOrItemDetail() {
+        this.createItemList();
+        List<Item> items = itemRepository.findByItemOrItemDetail("1번 테스트 상품", "1번째 테스트 상품 상세 설명");
+
+        for(Item item : items) {
+            System.out.println(item);
+        }
+    }
+
+    @Test
+    @DisplayName("가격 LessThan 테스트")
+    void findByPriceLessThan() {
+        this.createItemList();
+        List<Item> items = itemRepository.findByPriceLessThan(100000);
+
+        for(Item item : items) {
+            System.out.println(item);
+        }
+    }
+
+    private void createItemList() {
         for (int i = 1; i <= 10; i++) {
             Item item = new Item();
             item.setItemName(i + "번 테스트 상품");
@@ -53,16 +90,12 @@ class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("상품명 조회 테스트")
-    public void findByItemName() {
-        int expectedResult = 1;
+    @DisplayName("가격 내림차순 조회 테스트")
+    void findByPriceLessThanOrderByPriceDesc() {
         this.createItemList();
-        List<Item> itemList = itemRepository.findByItemName("1번 테스트 상품");
-
-        for(Item item : itemList) {
+        List<Item> items = itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
+        for(Item item : items) {
             System.out.println(item);
         }
-
-        assertThat(itemList.size()).isEqualTo(expectedResult);
     }
 }
