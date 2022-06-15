@@ -21,7 +21,8 @@ public class Item {
     private Long id;        // 상품 코드
 
     @Column(nullable = false,
-            length = 50)
+            length = 50,
+            name="item_nm")
     private String itemName;  // 상품명
     
     @Column(name="price",
