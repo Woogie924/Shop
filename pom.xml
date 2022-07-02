@@ -62,6 +62,12 @@
 			<artifactId>querydsl-apt</artifactId>
 			<version>4.3.1</version>
 		</dependency>
+		<!-- 공통요소 관리를 위해 thymeleaf 페이지 레이아웃 기능-->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			<version>2.4.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>  링크 처리 예제</h1>
+    <div>
+        <a th:href="@{/thymeleafExample/ex01}">예제 1 이동</a>
+    </div>
+    <div>
+        <a th:href="@{https:/www.thymeleaf.org/}">thymeleaf 공식 페이지</a>
+    </div>
+
+    <div>
+        <a th:href="@{/thymeleafExample/ex05(param1='파라미터1',
+                      param2='파라미터2')}"> thymeleaf 파라미터 전달</a>
+    </div>
+</body>
+</html>
