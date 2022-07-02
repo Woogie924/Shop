@@ -21,8 +21,9 @@ public class Item {
     private Long id;        // 상품 코드
 
     @Column(nullable = false,
-            length = 50)
-    private String itemNm;  // 상품명
+            length = 50,
+            name="item_nm")
+    private String itemName;  // 상품명
     
     @Column(name="price",
             nullable = false)
@@ -38,7 +39,7 @@ public class Item {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;  // 상품 판매 상태
     
-    private LocalDateTime localDateTime;    // 등록 시간
+    private LocalDateTime createdAt;    // 등록 시간
 
-    private LocalDateTime updateTime;       // 수정 시간
+    private LocalDateTime updatedAt;       // 수정 시간
 }
